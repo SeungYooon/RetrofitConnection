@@ -1,4 +1,4 @@
-package com.example.kotlinretrofit
+package com.example.kotlinretrofit.di
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -11,12 +11,13 @@ object SharedPref {
     private var sharedPref: SharedPreferences? = null
 
     fun openSharedPrep(context: Context) {
-        this.sharedPref = context.getSharedPreferences(LOGIN_SESSION, Context.MODE_PRIVATE)
+        sharedPref = context.getSharedPreferences(
+            LOGIN_SESSION, Context.MODE_PRIVATE)
 
     }
 
     fun writeLoginSession(data: String) {
-        if (this.sharedPref == null) {
+        if (sharedPref == null) {
             Log.e("DSMAD", "Plz start openSahredPrep() !")
         } else {
             sharedPref?.edit()?.putString("session", data)?.apply()
@@ -24,7 +25,7 @@ object SharedPref {
     }
 
     fun readLoginSession(): String? {
-        return if (this.sharedPref == null) {
+        return if (sharedPref == null) {
             Log.e("DSMAD", "Plz start openSahredPrep() !")
             null
         } else sharedPref?.getString("session", null)

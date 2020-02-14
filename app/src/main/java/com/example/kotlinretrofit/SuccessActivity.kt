@@ -3,15 +3,16 @@ package com.example.kotlinretrofit
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_success.*
+import retrofit2.Call
 
-class MainActivity : AppCompatActivity() {
+class SuccessActivity : AppCompatActivity() {
 
     val PREFERENCE = "com.example.kotlinretrofit"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_success)
 
         var pref = getSharedPreferences(PREFERENCE, Context.MODE_PRIVATE)
         var users = pref.getString("username", "")
